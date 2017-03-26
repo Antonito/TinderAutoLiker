@@ -22,7 +22,7 @@ def autoLike(header):
         print("==== LIKING ====")
         with open("profile.txt", "a") as outfile:
             for profile in data["results"]:
-                #like_r = requests.get(API_URL + "like/" + profile["_id"], headers=header)
+                like_r = requests.get(API_URL + "like/" + profile["_id"], headers=header)
                 if like_r.status_code == 200:
                     line = "Liked " + profile["_id"] + " [ " + profile["name"] + " ]"
                     print(line)
