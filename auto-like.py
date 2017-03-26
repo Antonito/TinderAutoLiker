@@ -24,6 +24,9 @@ def autoLike(header):
             for profile in data["results"]:
                 like_r = requests.get(API_URL + "like/" + profile["_id"], headers=header)
                 if like_r.status_code == 200:
+                    if profile["name"] == "Tinder Team":
+                        print("[!] You ran out of likes")
+                        return 1
                     line = "Liked " + profile["_id"] + " [ " + profile["name"] + " ]"
                     print(line)
                     outfile.write(line + "\n")
